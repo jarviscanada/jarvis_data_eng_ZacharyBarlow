@@ -15,7 +15,7 @@ export PGPASSWORD="$psql_password"
 
 memory_free=$(cat /proc/meminfo | fgrep "MemFree:" | awk '{print int($2*0.001)}' | xargs)
 cpu_idle=$(grep "cpu " /proc/stat | awk '{print (100-($2+$4)*100/($2+$4+$5))}')
-cpu_kernel=$(echo "$lscpu_out" | grep "Model name" | awk '{$1=""; $2=""; print $0}' | xargs)
+cpu_kernel=$(vmstat -t | sed -n 3p | awk '{print  $14}' | xargs)
 disk_io=$(vmstat -D | sed -n 1p | awk '{print $1}' | xargs)
 disk_available=$(df ~/ | awk '{print $4}' | xargs | awk '{print $2}')
 tstamp=$(date '+%Y-%m-%d %H:%M:%S')

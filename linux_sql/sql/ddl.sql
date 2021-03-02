@@ -2,10 +2,10 @@
 CREATE TABLE IF NOT EXISTS PUBLIC.host_info
     (
         id SERIAL           NOT NULL,
-        hostname            VARCHAR(50) NOT NULL,
+        hostname            VARCHAR(100) NOT NULL,
         cpu_number          INTEGER NOT NULL,
         cpu_architechture   VARCHAR(10) NOT NULL,
-        cpu_model           VARCHAR(50) NOT NULL,
+        cpu_model           VARCHAR(100) NOT NULL,
         cpu_mhz             REAL NOT NULL,
         L2_cache            INTEGER NOT NULL,
         total_mem           INTEGER NOT NULL,
