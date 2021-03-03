@@ -37,8 +37,65 @@ $ crontab -e
 # list the crontabs
 $ crontab -l
 ```
+# Implementation
+The implementation is very quite simple. The first part was to create the `psql_docker.sh` bash script which creates the PostgreSQL container to host the database on named `psql`.
+
+If running on a network, the Linux node/server are then connected via a switch and allowed to communicate to each other using IPv4 addresses.
+
+Using the `host_info.sh` and `host_usage.sh` scripts are to find and insert information into their respective tables regarding information on the host's machine.
+
+From there we use the following scripts (`ddl.sql`) to generate the tables to store the host's information and hardware resource usages. The other being (`queries.sql`) which is used to check data from the table on specific use cases such as average memory usages and host failures. These are used by the LCA manager to manage the host clusters. 
 ## Architecture
 ![architecture](./assets/linux.jpeg)
+
+
+## Scripts
+1. The `psql_docker.sh` bash script is used to create|start|stop the docker container that is running the instance of the psql database we are using with the `jrvs_psql` image. It needs the associated `db_username` and `db_password` to create the container if it does not exist already. The start and stop options do not require these arguments. 
+```
+$  ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
+```
+
+2. `host_info.sh` script is what is used to add the specific machine running the instance to the table to be referenced in the `host_usage` table. It takes the information to connect to the database `host_agent` and adds the host's information to the `host_info` table.
+```
+$ ../scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
+```
+  *  `psql_host`: the name of the host or it's ip address. (ex. localhost)
+  *  `psql_port`: the port for the psql instance (5432)
+  *  `db_name`: the name of the database connecting to (host_agent)
+  *  `psql_user`: the username for the instance (postgres)
+  *  `psql_password`: the password for the instance (password)
+
+3. `host_usage.sh` script is what we run against the crontab job. It finds the usages of specific details regarding the host machine it is running on and then inserts it into the `host_usage` table in the database.
+```
+$ ./scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
+```
+  *  `psql_host`: the name of the host or it's ip address. (ex. localhost)
+  *  `psql_port`: the port for the psql instance (5432)
+  *  `db_name`: the name of the database connecting to (host_agent)
+  *  `psql_user`: the username for the instance (postgres)
+  *  `psql_password`: the password for the instance (password)
+
+4. The crontab is a job running feature which allows us to continuously run a script at a specified time interval.
+```
+$ crontab -e
+
+# in the file
+* * * * * bash <pwd>/host_usage.sh psql_host psql_port db_name psql_user psql_password > /tmp/host_usage.log
+
+# list the crontabs
+$ crontab -l
+```
+
+##### SQL Queries
+5. `./sql/ddl.sql` is the script to create and add the tables `host_info` and `host_usage` to the database if they do not exist already.
+```
+$ psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
+```
+
+6. `./sql/queries.sql` contains 3 queries that the LCA manager or others will use to manage the cluster better and also plan for furture resources.
+  * Group hosts by hardware info: groups hosts by their cpu_number and sorted by their total memory.
+  * Average memory usage: the average amount of memory usage in a 5 minute time interval.
+  * Detect host failure: detects if there is a host failure, which means if there are less than 3 inserts in a 5 min interval.
 
 ## Database Modeling
 **Table: host_info**
@@ -65,3 +122,12 @@ cpu_idle | `REAL` | The percentage of cpu that is not being used
 cpu_kernel | `REAL` | The perecentage of kernel cpu usage 
 disk_io | `INTEGER` | number of disk I/O
 disk_available | `INTEGER` | Available memory in root directory `MB`
+
+## Tests
+1. The bash scripts were tested manually running each different option to test if the error returns are correct and as well as the scripts work on proper input.
+2. SQL queries were run on inputted mock data to test the output and check for any erros.
+
+## Improvements
+1. Create a script to automate the crontab setup.
+2. Handle change in updated hardware to update table host info
+3. Use a software to check the sql queries instead of all the bloated boilerplate to run and check it via terminal
