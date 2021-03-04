@@ -29,3 +29,5 @@ stmt="INSERT INTO PUBLIC.host_info (hostname,cpu_number,cpu_architechture,cpu_mo
 
 export PGPASSWORD="$psql_password"
 psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "$stmt"
+
+exit $?

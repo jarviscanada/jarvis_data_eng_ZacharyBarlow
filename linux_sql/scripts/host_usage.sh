@@ -20,10 +20,9 @@ disk_io=$(vmstat -D | sed -n 1p | awk '{print $1}' | xargs)
 disk_available=$(df ~/ | awk '{print $4}' | xargs | awk '{print $2}')
 tstamp=$(date '+%Y-%m-%d %H:%M:%S')
 
-host_id=$(psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name"
-          -c "SELECT id FROM host_info WHERE hostname='$hostname'"| sed 's/-/ /g' | xargs | awk '{print $2}' | xargs
-         )
 stmt="INSERT INTO PUBLIC.host_usage (timestamp,host_id,memory_free,cpu_idle,cpu_kernel,disk_io,disk_available)
-      VALUES ('$tstamp',1,$memory_free,$cpu_idle,$cpu_kernel,$disk_io,$disk_available)"
+      VALUES ('$tstamp',(SELECT id FROM host_info WHERE hostname='$hostname'),$memory_free,$cpu_idle,$cpu_kernel,$disk_io,$disk_available)"
 
 psql -h "$psql_host" -p "$psql_port" -U "$psql_user" -d "$db_name" -c "$stmt"
+
+exit $?

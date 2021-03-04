@@ -27,7 +27,6 @@ case $command in
     fi
 
     # create the volume to hold the data and create and run the container with the entered db username and password
-    docker volume create pgdata
     docker run --name jrvs-psql -e POSTGRES_PASSWORD=${db_password} -e POSTGRES_USER=${db_username} -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
     #What's $? variable? https://bit.ly/2LanHUi
     exit $?;;
@@ -58,5 +57,3 @@ case $command in
     echo "psql_docker: Entered invalid command line argument."
     exit 1;;
 esac
-
-exit 0;
