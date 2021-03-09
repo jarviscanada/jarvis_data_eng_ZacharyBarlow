@@ -15,7 +15,7 @@ public interface JavaGrep {
   /**
    * Traverse a given directory and return all files
    * @param rootDir
-   * @return
+   * @return the list of files in the given directory
    */
   List<File> listFiles(String rootDir);
 
@@ -33,14 +33,14 @@ public interface JavaGrep {
    *                     binary values to chracters, so that we as humans can read them
    *
    * @param inputFile
-   * @return
+   * @return all the individual lines of text in the file
    */
   List<String> readLines(File inputFile);
 
   /**
    * check if a line contains the regex pattern (passed by user)
    * @param line
-   * @return
+   * @return true/false if the line of text contains the regex
    */
   boolean containsPattern(String line);
 
