@@ -1,17 +1,17 @@
 package ca.jrvs.apps.grep;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import org.apache.log4j.BasicConfigurator;
-import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JavaGrepImp implements JavaGrep {
 
@@ -61,7 +61,7 @@ public class JavaGrepImp implements JavaGrep {
       List<String> lines = new ArrayList<>();
       String line;
 
-      while((line = in.readLine()) != null) {
+      while ((line = in.readLine()) != null) {
         lines.add(line);
       }
       in.close();
@@ -87,7 +87,7 @@ public class JavaGrepImp implements JavaGrep {
         out.newLine();
       }
       out.close();
-    } catch(IOException ex) {
+    } catch (IOException ex) {
       logger.error("Unable to write to file", ex);
     }
   }
@@ -125,7 +125,7 @@ public class JavaGrepImp implements JavaGrep {
 
   // MAIN METHOD
   public static void main(String[] args) {
-    if(args.length != 3) {
+    if (args.length != 3) {
       throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
     }
 
