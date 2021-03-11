@@ -1,18 +1,20 @@
 package ca.jrvs.apps.grep;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class JavaGrepLambdaImp extends JavaGrepImp {
+
   final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
 
   private String regex;
@@ -22,67 +24,33 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
   @Override
   public void process() throws IOException {
     try {
-      List<String> matchedLines = new ArrayList<>();
-
-      for (File file : listFiles(getRootPath())) {
-        for (String line : readLines(file)) {
-          if (containsPattern(line)) {
-            matchedLines.add(line);
+      listFiles(getRootPath()).stream().forEach(
+          file -> {
+            try {
+              writeToFile(readLines(file).stream()
+                  .filter(s -> containsPattern(s))
+                  .collect(Collectors.toList()));
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
           }
-        }
-      }
-      writeToFile(matchedLines);
+      );
     } catch (IOException ex) {
       logger.error("USAGE: JavaGrep regex rootPath outFile");
     }
   }
 
   @Override
-  public List<File> listFiles(String rootDir) {
-    List<File> files = new ArrayList<>();
-    File[] dir = new File(rootDir).listFiles();
-
-    for (File file : dir) {
-      if (file.isDirectory()) {
-        files.addAll(listFiles(file.getAbsolutePath()));
-      } else if (file.isFile()) {
-        files.add(file);
-      }
-    }
-    return files;
+  public List<File> listFiles(String rootDir) throws IOException {
+    Path path = Paths.get(rootDir);
+    Stream<File> files = Files.walk(path).map(Path::toFile);
+    return files.filter(File::isFile).collect(Collectors.toList());
   }
 
   @Override
-  public List<String> readLines(File inputFile) {
-    try {
-      BufferedReader in = new BufferedReader(new FileReader(inputFile));
-      List<String> lines = new ArrayList<>();
-      String line;
-
-      while ((line = in.readLine()) != null) {
-        lines.add(line);
-      }
-      in.close();
-      return lines;
-    } catch (IOException ex) {
-      logger.error("Unable to read line in file ", ex);
-    }
-
-    return null;
-  }
-
-  @Override
-  public void writeToFile(List<String> lines) throws IOException {
-    try {
-      BufferedWriter out = new BufferedWriter(new FileWriter(getOutFile()));
-      for (String line : lines) {
-        out.write(line);
-        out.newLine();
-      }
-      out.close();
-    } catch (IOException ex) {
-      logger.error("Unable to write to file", ex);
-    }
+  public List<String> readLines(File inputFile) throws IOException {
+    Stream<String> lines = Files.lines(inputFile.toPath());
+    return lines.collect(Collectors.toList());
   }
 
   public static void main(String[] args) {
