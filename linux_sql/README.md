@@ -1,9 +1,9 @@
 # Linux Cluster Monitoring Agent
 
 # Introduction
-The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of 10 nodes/servers which are running CentOS 7. All of these servers are connected internally to each other through a switch and able to communication through interval IPv4 addresses.
+The Jarvis Linux Cluster Administration (LCA) team manages a Linux cluster of 10 nodes/servers which are running CentOS 7. All of these servers are connected internally to each other through a switch and able to communicate through interval IPv4 addresses.
 
-The goal is to record the hardware specifications of each one of the nodes and monitor their individual usages in real-time. This data is collected by a crontab job every minute and store within a RDBMS database using PostgreSQL.
+The goal is to record the hardware specifications of each one of the nodes and monitor their individual usages in real-time. This data is collected by a crontab job every minute and stored within a RDBMS database using PostgreSQL.
 
 This data will be used to create reports for future research planning purposes and detect failures on specific hosts running.
 
@@ -11,7 +11,7 @@ The scripts to get the data and insert into the database are using bash and sql 
 
 # Quick Start
 This is a simple quick start guide for you to implement and use the monitoring agent for your team or own system.
-1. To start the instance, we have to create the docker container to run the CentOS image for our postgres database. Then we can start the container or stop the container whenever we want using the start/stop commands. The `[db_username][db_password]` are only needed for create tag.
+1. To start the instance, we have to create the docker container to run the postgres image for our database. Then we can start the container or stop the container whenever we want using the start/stop commands. The `[db_username][db_password]` are only needed for create tag.
 ```
 $  ./scripts/psql_docker.sh start|stop|create [db_username][db_password]
 ```
