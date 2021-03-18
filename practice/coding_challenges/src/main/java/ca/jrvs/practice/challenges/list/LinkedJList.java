@@ -80,7 +80,15 @@ public class LinkedJList<E> implements JList<E> {
    */
   @Override
   public Object[] toArray() {
-    return new Object[0];
+    Object[] arr = new Object[this.size];
+    Node<E> curr = first;
+    int i = 0;
+    while (curr.next != null) {
+      arr[i] = curr.item;
+      curr = curr.next;
+      i++;
+    }
+    return arr;
   }
 
   /**
