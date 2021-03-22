@@ -44,7 +44,7 @@ public class Tweet {
   public Date getCreatedAt() {
     return createdAt;
   }
-  
+
   @JsonProperty("created_at")
   public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
