@@ -75,21 +75,4 @@ public class TwitterHttpHelper implements HttpHelper {
       throw new RuntimeException();
     }
   }
-
-  /**
-   * Main Class
-   *
-   * @param args
-   */
-  public static void main(String[] args) throws Exception {
-    String cKey = System.getenv("cKey");
-    String cSecret = System.getenv("cSecret");
-    String accessToken = System.getenv("accessToken");
-    String tokenSecret = System.getenv("tokenSecret");
-
-    TwitterHttpHelper tweet = new TwitterHttpHelper(cKey, cSecret, accessToken, tokenSecret);
-    HttpResponse response = tweet.httpPost(new URI("https://api.twitter.com/1.1/statuses/update.json?status=TESTING"));
-
-    System.out.println(EntityUtils.toString(response.getEntity()));
-  }
 }
