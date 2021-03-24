@@ -17,7 +17,7 @@ public class ValidParentheses {
     map.put('}', '{');
   }
 
-  public <E> boolean validCheck(String s) {
+  public boolean validCheck(String s) {
     Stack<Character> stack = new Stack<>();
 
     for (int i = 0, l = s.length(); i < l; i++) {
