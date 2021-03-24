@@ -1,11 +1,11 @@
 # Preferred name (Characters only)
 name: "Zachary Barlow"
 # Your GitHub repo root URL
-github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_demo
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science.
+summary: My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science. I have joined Jarvis Consulting as a Data Engineer/Software Developer in pursuit of shaping my future and working with top employers in our country. I am working through a variety of projects relating to the use of Java 8, Linux/Bash, Spring Boot, RDBMS, Maven, Docker, and more. I am an extremely eager and passionate individual looking for a position within an amazing team to show off my skills with and push not only my progress but their company further.
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -71,15 +71,14 @@ jarvis_projects:
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
-    #project name
-  - name: "Web app for resturant"
+  - name: "Bingo Web Application"
     #URL is optional
-    git_url: "https://github.com/jarviscanada/jarvis_profile_builder"
+    git_url: "https://github.com/zachary-barlow/Bingo"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
-  - name: "Machine Learning"
-    git_url:
-    description: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+    description: "Developed an online multiplayer bingo game using Socket.IO and Node.js for the rooms and connections and then React for the frontend where the game updates for every change to the game without refreshing."
+  - name: "Bookstore Inventory"
+    git_url: "https://github.com/zachary-barlow/VentionProject"
+    description: "Created a bookstore inventory system where I created an API and made database calls with Knex andmade a dashboard with ReactJs where you can add, edit, and delete books, as well as receive notifications when a book is out of stock."
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -87,44 +86,30 @@ highlighted_projects:
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
   - title: "Software Developer"
-    company: "Jarvis"
-    duration: "2020-present"
+    company: "Jarvis Consulting"
+    duration: "2021-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
-  - title: "Tutor"
-    company: "XYZ Company"
-    duration: "2019"
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
-
+    description: "Have learned and progressed through a variety of projects from Linux, to Java API tools. I have used a variety of tools such as: Linux, Git, Java, Docker, RDBMS, and led a team of three using a Agile Scrum approach to daily meetings and ideologies."
+  - title: "Full Stack Software Developer Co-op"
+    company: "Public Services and Procurement Canada"
+    duration: "Sept 2017 - Dec 2017"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Developed and worked on the Public Accounts 2016-2017 version and improved efficiency on production by implemented methods for more edge cases in tables. I also updated server information and web services they use to new and brighter formatting."
 #List of edcuation
-education: 
-  - school_name: "XYZ university"
-    duration: "2012-2016"
-    degree: "Bachelor of Applied Sciences"
-    department: "Electrical and Computer Engineering"
+education:
+  - school_name: "University of Toronto Scarborough"
+    duration: "2016-2020"
+    degree: "Bachelor of Science"
+    department: "Computer Science, Mathematics, and Statistics"
     # optional
-    awards_achievements: 
-      - "Scholarship"
-      - "Dean's List (2015, 2016): Ut enim ad minim veniam"
-      - "GPA: 3.8/4.0"
-  - school_name: "XYZ university"
-    duration: "2016-2018"
-    degree: "Master of Engineering"
-    department: "Electrical and Computer Engineering"
-    awards_achievements: 
+    awards_achievements:
 
 #Optional section
 others:
     #category
   - title: "Certificates"
-    #list of items
     bullets:
-      - "Udacity Machine Learning (2019)"
-  - title: "Awards"
-    bullets:
-      - "Winner"
-  - title: "Activities/Hobbies"
-    bullets:
-      - "Basketball player"
-      - "Competitive gaming"
-      - "Volunteer, ABC Food bank: Ut enim ad minim veniam"
+      - "GCP Big Data and Machine Learning Fundamentals"
+      - "IBM Databases and SQL for Data Science"
+      - "Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning"
+      - "Convolutional Neural Networks in TensorFlow"

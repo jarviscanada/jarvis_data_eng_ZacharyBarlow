@@ -1,6 +1,6 @@
 # Zachary Barlow . Jarvis Consulting
 
-My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science.
+My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science. I have joined Jarvis Consulting as a Data Engineer/Software Developer in pursuit of shaping my future and working with top employers in our country. I am working through a variety of projects relating to the use of Java 8, Linux/Bash, Spring Boot, RDBMS, Maven, Docker, and more. I am an extremely eager and passionate individual looking for a position within an amazing team to show off my skills with and push not only my progress but their company further.
 
 ## Skills
 
@@ -12,53 +12,47 @@ My name is Zachary Barlow and I graduated from the University of Toronto Scarbor
 
 ## Jarvis Projects
 
-Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow)
+Project source code: [https://github.com/jarviscanada/jarvis_data_eng_demo](https://github.com/jarviscanada/jarvis_data_eng_demo)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/linux_sql)]: Developed a Linux clustering monitoring agent that can be used to manage and monitor nodes/server hardware specifications. Created a PostgreSQL instance from a docker container running a CentOS7 image and activated a crontab to run a bash script to collect the data every minute and insert into the database. As well as created a few sql queries that the manager can use to check host failures on specific machines.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/linux_sql)]: Developed a Linux clustering monitoring agent that can be used to manage and monitor nodes/server hardware specifications. Created a PostgreSQL instance from a docker container running a CentOS7 image and activated a crontab to run a bash script to collect the data every minute and insert into the database. As well as created a few sql queries that the manager can use to check host failures on specific machines.
 
-**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/core_java)]:
+**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/core_java)]:
       
   - Twitter App: Developed a command line interface to allow the user to create, read, and delete tweets using the Twitter API. Architected the application using the MVC design pattern and Java Spring framework. Tested the application using JUnit4 and Mockito to perform the unit and integration tests to ensure proper functionality and created a dockerfile to deploy an image to docker hub.
   - JDBC App: Implemented a DAO in terms of a Customer and Orders and demonstrated how they are connected to DTOs and the abstraction layer. Using Maven, Java, Docker, and PostgreSQL for the RDBMS.
   - Grep App: Implemented a copy cat Linux grep command in Java using two seperate implementations and hosted it on Docker Hub. The two implementations are using strictly for loops and the other, updated for more performance was using Streams and Lambda functions.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/springboot)]: Not Started
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/springboot)]: Not Started
 
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/python_data_anlytics)]: Not Started
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/python_data_anlytics)]: Not Started
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/hadoop)]: Not Started
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/hadoop)]: Not Started
 
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/spark)]: Not Started
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/spark)]: Not Started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/cloud_devops)]: Not Started
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/cloud_devops)]: Not Started
 
 
 ## Highlighted Projects
-**Web app for resturant** [[GitHub](https://github.com/jarviscanada/jarvis_profile_builder)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Bingo Web Application** [[GitHub](https://github.com/zachary-barlow/Bingo)]: Developed an online multiplayer bingo game using Socket.IO and Node.js for the rooms and connections and then React for the frontend where the game updates for every change to the game without refreshing.
 
-**Machine Learning**: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Bookstore Inventory** [[GitHub](https://github.com/zachary-barlow/VentionProject)]: Created a bookstore inventory system where I created an API and made database calls with Knex andmade a dashboard with ReactJs where you can add, edit, and delete books, as well as receive notifications when a book is out of stock.
 
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2020-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Software Developer, Jarvis Consulting (2021-present)**: Have learned and progressed through a variety of projects from Linux, to Java API tools. I have used a variety of tools such as: Linux, Git, Java, Docker, RDBMS, and led a team of three using a Agile Scrum approach to daily meetings and ideologies.
 
-**Tutor, XYZ Company (2019)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Full Stack Software Developer Co-op, Public Services and Procurement Canada (Sept 2017 - Dec 2017)**: Developed and worked on the Public Accounts 2016-2017 version and improved efficiency on production by implemented methods for more edge cases in tables. I also updated server information and web services they use to new and brighter formatting.
 
 
 ## Education
-**XYZ university (2012-2016)**, Bachelor of Applied Sciences, Electrical and Computer Engineering
-- Scholarship
-- Dean's List (2015, 2016): Ut enim ad minim veniam
-- GPA: 3.8/4.0
-
-**XYZ university (2016-2018)**, Master of Engineering, Electrical and Computer Engineering
+**University of Toronto Scarborough (2016-2020)**, Bachelor of Science, Computer Science, Mathematics, and Statistics
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- GCP Big Data and Machine Learning Fundamentals
+- IBM Databases and SQL for Data Science
+- Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning
+- Convolutional Neural Networks in TensorFlow

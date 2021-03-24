@@ -1,35 +1,24 @@
 {
   "education": [
     {
-      "awards_achievements": [
-        "Scholarship",
-        "Dean's List (2015, 2016): Ut enim ad minim veniam",
-        "GPA: 3.8/4.0"
-      ],
-      "degree": "Bachelor of Applied Sciences",
-      "department": "Electrical and Computer Engineering",
-      "duration": "2012-2016",
-      "school_name": "XYZ university"
-    },
-    {
       "awards_achievements": null,
-      "degree": "Master of Engineering",
-      "department": "Electrical and Computer Engineering",
-      "duration": "2016-2018",
-      "school_name": "XYZ university"
+      "degree": "Bachelor of Science",
+      "department": "Computer Science, Mathematics, and Statistics",
+      "duration": "2016-2020",
+      "school_name": "University of Toronto Scarborough"
     }
   ],
-  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow",
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_demo",
   "highlighted_projects": [
     {
-      "description": "Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
-      "git_url": "https://github.com/jarviscanada/jarvis_profile_builder",
-      "name": "Web app for resturant"
+      "description": "Developed an online multiplayer bingo game using Socket.IO and Node.js for the rooms and connections and then React for the frontend where the game updates for every change to the game without refreshing.",
+      "git_url": "https://github.com/zachary-barlow/Bingo",
+      "name": "Bingo Web Application"
     },
     {
-      "description": "Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
-      "git_url": null,
-      "name": "Machine Learning"
+      "description": "Created a bookstore inventory system where I created an API and made database calls with Knex andmade a dashboard with ReactJs where you can add, edit, and delete books, as well as receive notifications when a book is out of stock.",
+      "git_url": "https://github.com/zachary-barlow/VentionProject",
+      "name": "Bookstore Inventory"
     }
   ],
   "jarvis_projects": [
@@ -77,37 +66,26 @@
   "others": [
     {
       "bullets": [
-        "Udacity Machine Learning (2019)"
+        "GCP Big Data and Machine Learning Fundamentals",
+        "IBM Databases and SQL for Data Science",
+        "Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning",
+        "Convolutional Neural Networks in TensorFlow"
       ],
       "title": "Certificates"
-    },
-    {
-      "bullets": [
-        "Winner"
-      ],
-      "title": "Awards"
-    },
-    {
-      "bullets": [
-        "Basketball player",
-        "Competitive gaming",
-        "Volunteer, ABC Food bank: Ut enim ad minim veniam"
-      ],
-      "title": "Activities/Hobbies"
     }
   ],
   "professional_experience": [
     {
-      "company": "Jarvis",
-      "description": "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.",
-      "duration": "2020-present",
+      "company": "Jarvis Consulting",
+      "description": "Have learned and progressed through a variety of projects from Linux, to Java API tools. I have used a variety of tools such as: Linux, Git, Java, Docker, RDBMS, and led a team of three using a Agile Scrum approach to daily meetings and ideologies.",
+      "duration": "2021-present",
       "title": "Software Developer"
     },
     {
-      "company": "XYZ Company",
-      "description": "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.",
-      "duration": "2019",
-      "title": "Tutor"
+      "company": "Public Services and Procurement Canada",
+      "description": "Developed and worked on the Public Accounts 2016-2017 version and improved efficiency on production by implemented methods for more edge cases in tables. I also updated server information and web services they use to new and brighter formatting.",
+      "duration": "Sept 2017 - Dec 2017",
+      "title": "Full Stack Software Developer Co-op"
     }
   ],
   "skills": {
@@ -140,5 +118,5 @@
       "Python"
     ]
   },
-  "summary": "My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science."
+  "summary": "My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science. I have joined Jarvis Consulting as a Data Engineer/Software Developer in pursuit of shaping my future and working with top employers in our country. I am working through a variety of projects relating to the use of Java 8, Linux/Bash, Spring Boot, RDBMS, Maven, Docker, and more. I am an extremely eager and passionate individual looking for a position within an amazing team to show off my skills with and push not only my progress but their company further."
 }
