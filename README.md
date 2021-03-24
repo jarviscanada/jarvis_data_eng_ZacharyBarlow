@@ -19,9 +19,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/core_java)]:
       
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
+  - Twitter App: Developed a command line interface to allow the user to create, read, and delete tweets using the Twitter API. Architected the application using the MVC design pattern and Java Spring framework. Tested the application using JUnit4 and Mockito to perform the unit and integration tests to ensure proper functionality and created a dockerfile to deploy an image to docker hub.
+  - JDBC App: Implemented a DAO in terms of a Customer and Orders and demonstrated how they are connected to DTOs and the abstraction layer. Using Maven, Java, Docker, and PostgreSQL for the RDBMS.
+  - Grep App: Implemented a copy cat Linux grep command in Java using two seperate implementations and hosted it on Docker Hub. The two implementations are using strictly for loops and the other, updated for more performance was using Streams and Lambda functions.
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/springboot)]: Not Started
 
