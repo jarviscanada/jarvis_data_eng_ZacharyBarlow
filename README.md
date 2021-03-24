@@ -1,21 +1,21 @@
 # Zachary Barlow . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+My name is Zachary Barlow and I graduated from the University of Toronto Scarborough campus with a degree in Statistics, specializing in Machine learning and Data Science.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python
 
-**Competent:** Donec, fermentum, Donec, fermentum, Donec
+**Competent:** JavaScript, React, Django, NumPy, Docker, Excel, HTML5/CSS, Jupyter Notebook, Maven
 
-**Familiar:** Donec, fermentum, fermentum, fermentum, fermentum
+**Familiar:** Pandas, TensorFlow, Express.js, Node.js, Google Cloud Platform, R, Computer Networking
 
 ## Jarvis Projects
 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/linux_sql)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/linux_sql)]: Developed a Linux clustering monitoring agent that can be used to manage and monitor nodes/server hardware specifications. Created a PostgreSQL instance from a docker container running a CentOS7 image and activated a crontab to run a bash script to collect the data every minute and insert into the database. As well as created a few sql queries that the manager can use to check host failures on specific machines.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/core_java)]:
       
