@@ -7,15 +7,14 @@ import java.util.Arrays;
 
 public class CreateTweetUtil {
 
-  public Tweet createTweet(String text, Double lng, Double lat) {
+  public static Tweet createTweet(String text, double lng, double lat) {
     Coordinates coords = new Coordinates();
     coords.setCoordinates(Arrays.asList(lng, lat));
     coords.setType("Point");
 
     Tweet tweet = new Tweet();
-    PercentEscaper escaper = new PercentEscaper("", false);
 
-    tweet.setText(escaper.escape(text));
+    tweet.setText(text);
     tweet.setCoordinates(coords);
     return tweet;
   }

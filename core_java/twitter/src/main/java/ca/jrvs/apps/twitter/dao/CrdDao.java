@@ -1,5 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
+import java.net.URISyntaxException;
+
 public interface CrdDao<T, ID> {
 
   /**
@@ -7,7 +9,7 @@ public interface CrdDao<T, ID> {
    * @param entity entity that to be created
    * @return created entity
    */
-  T create(T entity);
+  T create(T entity) throws URISyntaxException;
 
   /**
    * Find an entity(Tweet) by its id

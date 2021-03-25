@@ -12,7 +12,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 
 public class TwitterHttpHelper implements HttpHelper {
 
@@ -40,6 +39,7 @@ public class TwitterHttpHelper implements HttpHelper {
     httpClient = new DefaultHttpClient();
   }
 
+
   /**
    * Execute a HTTP Post call
    *
@@ -54,7 +54,7 @@ public class TwitterHttpHelper implements HttpHelper {
       return httpClient.execute(request);
     } catch (IOException | OAuthExpectationFailedException | OAuthMessageSignerException |
         OAuthCommunicationException ex) {
-      throw new RuntimeException();
+      throw new RuntimeException(ex);
     }
   }
 

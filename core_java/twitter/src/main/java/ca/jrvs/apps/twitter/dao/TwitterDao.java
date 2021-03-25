@@ -7,9 +7,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gdata.util.common.base.PercentEscaper;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class TwitterDao implements CrdDao<Tweet, String> {
@@ -27,6 +30,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   private static final int HTTP_OK = 200;
 
   private HttpHelper httpHelper;
+  static final Logger logger = LoggerFactory.getLogger(TwitterDao.class);
 
   @Autowired
   public TwitterDao(HttpHelper httpHelper) {
@@ -41,16 +45,25 @@ public class TwitterDao implements CrdDao<Tweet, String> {
    */
   @Override
   public Tweet create(Tweet entity) {
-    PercentEscaper percentEscaper = new PercentEscaper("", false);
+    PercentEscaper percentEscaper = new PercentEscaper("", true);
     List<Double> coords = entity.getCoordinates().getCoordinates();
 
     String queryStr = "status" + EQUAL + percentEscaper.escape(entity.getText()) + AMPERSAND
-        + "long" + EQUAL + coords.get(0) + "lat" + EQUAL + coords.get(1);
+        + "long" + EQUAL + coords.get(0) + AMPERSAND + "lat" + EQUAL + coords.get(1);
+    URI uri;
+    try {
+      uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + queryStr);
+    } catch (URISyntaxException e) {
+      throw new IllegalArgumentException(e);
+    }
 
-    URI uri = URI.create(API_BASE_URI + POST_PATH + QUERY_SYM + queryStr);
 
-    HttpResponse response = response = httpHelper.httpPost(uri);
-    return parseData(response, HTTP_OK);
+    HttpResponse response = httpHelper.httpPost(uri);
+    try {
+      return parseData(response, HTTP_OK);
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
   }
 
   /**
@@ -61,9 +74,20 @@ public class TwitterDao implements CrdDao<Tweet, String> {
    */
   @Override
   public Tweet findById(String s) {
-    URI uri = URI.create(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id_str" + EQUAL + s);
+    URI uri;
+    try {
+      uri = new URI(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + s);
+    } catch (URISyntaxException e) {
+      throw new IllegalArgumentException(e);
+    }
+
     HttpResponse response = httpHelper.httpGet(uri);
-    return parseData(response, HTTP_OK);
+    try {
+      Tweet t = parseData(response, HTTP_OK);
+      return t;
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
   }
 
   /**
@@ -75,8 +99,14 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   @Override
   public Tweet deleteById(String s) {
     URI uri = URI.create(API_BASE_URI + DELETE_PATH + "/" + s + ".json");
+    logger.debug(String.valueOf(uri));
     HttpResponse response = httpHelper.httpPost(uri);
-    return parseData(response, HTTP_OK);
+    try {
+      Tweet t = parseData(response, HTTP_OK);
+      return t;
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
   }
 
 
@@ -87,7 +117,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
    * @param code
    * @return
    */
-  private Tweet parseData(HttpResponse response, Integer code) {
+  public Tweet parseData(HttpResponse response, Integer code) {
     Tweet tweet = null;
 
     int sCode = response.getStatusLine().getStatusCode();
@@ -105,7 +135,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     try {
       tweet = TwitterJsonParser.toObjectFromJson(data, Tweet.class);
     } catch (IOException e) {
-      throw new RuntimeException("Unable to convert data to a Tweet object");
+      throw new RuntimeException("Unable to convert data to a Tweet object -> " + e);
     }
     return tweet;
   }

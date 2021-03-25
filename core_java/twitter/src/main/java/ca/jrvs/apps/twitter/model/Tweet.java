@@ -21,7 +21,7 @@ import java.util.Date;
 public class Tweet {
 
   @JsonProperty("created_at")
-  private Date createdAt;
+  private String createdAt;
   @JsonProperty("id")
   private long id;
   @JsonProperty("id_str")
@@ -42,12 +42,12 @@ public class Tweet {
   private Boolean retweeted;
 
   @JsonProperty("created_at")
-  public Date getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
   @JsonProperty("created_at")
-  public void setCreatedAt(Date createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 

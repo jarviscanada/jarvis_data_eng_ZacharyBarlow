@@ -1,9 +1,7 @@
 package ca.jrvs.apps.twitter.dao.helper;
 
-import static org.junit.Assert.*;
-
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.net.URI;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
