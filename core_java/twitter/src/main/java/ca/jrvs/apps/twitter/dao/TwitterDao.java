@@ -3,11 +3,9 @@ package ca.jrvs.apps.twitter.dao;
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.TwitterJsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gdata.util.common.base.PercentEscaper;
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
@@ -45,18 +43,12 @@ public class TwitterDao implements CrdDao<Tweet, String> {
    */
   @Override
   public Tweet create(Tweet entity) {
-    PercentEscaper percentEscaper = new PercentEscaper("", true);
+    PercentEscaper percentEscaper = new PercentEscaper("", false);
     List<Double> coords = entity.getCoordinates().getCoordinates();
 
     String queryStr = "status" + EQUAL + percentEscaper.escape(entity.getText()) + AMPERSAND
         + "long" + EQUAL + coords.get(0) + AMPERSAND + "lat" + EQUAL + coords.get(1);
-    URI uri;
-    try {
-      uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + queryStr);
-    } catch (URISyntaxException e) {
-      throw new IllegalArgumentException(e);
-    }
-
+    URI uri = URI.create(API_BASE_URI + POST_PATH + QUERY_SYM + queryStr);
 
     HttpResponse response = httpHelper.httpPost(uri);
     try {
@@ -74,12 +66,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
    */
   @Override
   public Tweet findById(String s) {
-    URI uri;
-    try {
-      uri = new URI(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + s);
-    } catch (URISyntaxException e) {
-      throw new IllegalArgumentException(e);
-    }
+    URI uri = URI.create(API_BASE_URI + SHOW_PATH + QUERY_SYM + "id" + EQUAL + s);
 
     HttpResponse response = httpHelper.httpGet(uri);
     try {
