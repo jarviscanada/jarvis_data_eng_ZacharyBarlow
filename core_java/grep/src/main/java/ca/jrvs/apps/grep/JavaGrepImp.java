@@ -35,7 +35,7 @@ public class JavaGrepImp implements JavaGrep {
       }
       writeToFile(matchedLines);
     } catch (IOException ex) {
-      logger.error("USAGE: JavaGrep regex rootPath outFile");
+      logger.error("USAGE: JavaGrep regex rootPath outFile", ex);
     }
   }
 
@@ -56,21 +56,18 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public List<String> readLines(File inputFile) throws IOException {
+    BufferedReader in = new BufferedReader(new FileReader(inputFile));
+    List<String> lines = new ArrayList<>();
+    String line;
     try {
-      BufferedReader in = new BufferedReader(new FileReader(inputFile));
-      List<String> lines = new ArrayList<>();
-      String line;
-
       while ((line = in.readLine()) != null) {
         lines.add(line);
       }
       in.close();
-      return lines;
     } catch (IOException ex) {
       logger.error("Unable to read line in file ", ex);
     }
-
-    return null;
+    return lines;
   }
 
   @Override
@@ -140,7 +137,7 @@ public class JavaGrepImp implements JavaGrep {
     try {
       javaGrepImp.process();
     } catch (Exception ex) {
-      javaGrepImp.logger.error(ex.getMessage(), ex);
+      javaGrepImp.logger.error("Unable to run Java Grep!", ex);
     }
   }
 }

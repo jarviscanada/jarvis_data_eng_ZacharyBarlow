@@ -36,7 +36,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
           }
       );
     } catch (IOException ex) {
-      logger.error("USAGE: JavaGrep regex rootPath outFile");
+      logger.error("USAGE: JavaGrep regex rootPath outFile", ex);
     }
   }
 
@@ -69,7 +69,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     try {
       javaGrepLambdaImp.process();
     } catch (Exception ex) {
-      ex.printStackTrace();
+      javaGrepImp.logger.error("Unable to run Java Grep!", ex);
     }
   }
 }
