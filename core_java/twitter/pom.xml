@@ -58,31 +58,4 @@
     </dependency>
 
   </dependencies>
-<!--  <build>-->
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        <artifactId>maven-shade-plugin</artifactId>-->
-<!--        <executions>-->
-<!--          &lt;!&ndash; Run shade goal on package phase &ndash;&gt;-->
-<!--          <execution>-->
-<!--            <configuration>-->
-<!--              <transformers>-->
-<!--                &lt;!&ndash; add Main-Class to manifest file &ndash;&gt;-->
-<!--                <transformer-->
-<!--                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
-<!--                  <mainClass>ca.jrvs.apps.grep.JavaGrepImp</mainClass>-->
-<!--                </transformer>-->
-<!--              </transformers>-->
-<!--            </configuration>-->
-<!--            <goals>-->
-<!--              <goal>shade</goal>-->
-<!--            </goals>-->
-<!--            <phase>package</phase>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <version>2.3</version>-->
-<!--      </plugin>-->
-<!--    </plugins>-->
-<!--  </build>-->
 </project>

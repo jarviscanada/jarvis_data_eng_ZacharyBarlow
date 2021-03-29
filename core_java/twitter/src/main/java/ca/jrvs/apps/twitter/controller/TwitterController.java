@@ -3,7 +3,6 @@ package ca.jrvs.apps.twitter.controller;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.util.CreateTweetUtil;
-import java.util.Arrays;
 import java.util.List;
 
 public class TwitterController implements Controller {
@@ -14,7 +13,10 @@ public class TwitterController implements Controller {
   private Service service;
 
   //@Autowired
-  public TwitterController(Service service) { this.service = service; }
+  public TwitterController(Service service) {
+    this.service = service;
+  }
+
   /**
    * Parse user argument and post a tweet by calling service classes
    *
@@ -43,7 +45,8 @@ public class TwitterController implements Controller {
       lng = Double.parseDouble(cArr[0]);
       lat = Double.parseDouble(cArr[1]);
     } catch (NumberFormatException e) {
-      throw new IllegalArgumentException("Unable to parse the coordinates to Double. Invalid input!");
+      throw new IllegalArgumentException(
+          "Unable to parse the coordinates to Double. Invalid input!");
     }
     Tweet tweet = CreateTweetUtil.createTweet(text, lng, lat);
     return service.postTweet(tweet);
@@ -62,7 +65,8 @@ public class TwitterController implements Controller {
     if (args.length < 2) {
       throw new IllegalArgumentException("Invalid amount of arguments!");
     }
-    return service.showTweet(args[1], args);
+    String[] fields = args.length > 2 ? args[2].split(COMMA) : null;
+    return service.showTweet(args[1], fields);
   }
 
   /**
@@ -77,6 +81,7 @@ public class TwitterController implements Controller {
     if (args.length < 2) {
       throw new IllegalArgumentException("Invalid amount of arguments!");
     }
-    return service.deleteTweets(Arrays.copyOfRange(args, 1, args.length));
+    String[] ids = args[1].split(COMMA);
+    return service.deleteTweets(ids);
   }
 }
