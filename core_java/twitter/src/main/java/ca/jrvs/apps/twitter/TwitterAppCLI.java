@@ -11,7 +11,9 @@ import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.util.TwitterJsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterAppCLI {
 
   private Controller controller;
@@ -42,7 +44,7 @@ public class TwitterAppCLI {
     app.run(args);
   }
 
-  private void run(String[] args) {
+  public void run(String[] args) {
 
     String req = args[0].toLowerCase();
     if (req == "get") {

@@ -9,10 +9,10 @@ import java.net.URI;
 import java.util.List;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String> {
 
   // URI constants
@@ -28,7 +28,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   private static final int HTTP_OK = 200;
 
   private HttpHelper httpHelper;
-  static final Logger logger = LoggerFactory.getLogger(TwitterDao.class);
 
   @Autowired
   public TwitterDao(HttpHelper httpHelper) {
@@ -86,7 +85,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   @Override
   public Tweet deleteById(String s) {
     URI uri = URI.create(API_BASE_URI + DELETE_PATH + "/" + s + ".json");
-    logger.debug(String.valueOf(uri));
     HttpResponse response = httpHelper.httpPost(uri);
     try {
       Tweet t = parseData(response, HTTP_OK);
