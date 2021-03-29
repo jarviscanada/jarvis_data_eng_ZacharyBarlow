@@ -1,5 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
+import java.net.URISyntaxException;
+
 public interface CrdDao<T, ID> {
 
   /**
