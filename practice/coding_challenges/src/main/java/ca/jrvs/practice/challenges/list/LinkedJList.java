@@ -1,5 +1,9 @@
 package ca.jrvs.practice.challenges.list;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class LinkedJList<E> implements JList<E> {
   transient int size = 0;
 
@@ -229,6 +233,33 @@ public class LinkedJList<E> implements JList<E> {
     }
   }
 
+  /**
+   * Remove duplicate nodes in an unsorted integer linked list
+   */
+  public void removeDuplicates() {
+    // HashMap
+    Map<E, Integer> map = new HashMap<>();
+    Node<E> node = first;
+    while (node.next != null) {
+      if (map.containsKey(node.item)) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        size--;
+      } else {
+        map.put(node.item, 0);
+      }
+    }
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder str = new StringBuilder();
+    Node<E> n = first;
+    while (n.next != null) {
+      str.append(n.item);
+    }
+    return str.toString();
+  }
   private static class Node<E> {
     E item;
     Node<E> next;
