@@ -15,7 +15,7 @@ barloza/twitter post|get|delete [options]
 
 # Design
 ## UML diagram
-![UML Diagram](./assets/UML.png)
+![UML Diagram](./assets/UML.JPG)
 In the application there are a few components to talk about:
 * ### App/Main
 This is the component that creates the IoC container for the SpringBoot application and initializes and injects their dependencies.
