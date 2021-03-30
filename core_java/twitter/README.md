@@ -65,7 +65,7 @@ The DAO layer is the Data Access Layer, it communicates with the HTTP Client and
 
 ```json
 {
-  "indices": [], // list of Integer
+  "indices": [],
   "texts": null
 }
 ```
@@ -74,7 +74,7 @@ The DAO layer is the Data Access Layer, it communicates with the HTTP Client and
 ```json
 {
   "name": null,
-  "indices": [], // list of Integer
+  "indices": [], 
   "screen_name": null,
   "id":  null,
   "id_str": null
