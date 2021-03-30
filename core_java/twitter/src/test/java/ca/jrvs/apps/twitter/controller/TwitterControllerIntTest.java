@@ -11,7 +11,6 @@ import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import ca.jrvs.apps.twitter.util.CreateTweetUtil;
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +21,6 @@ public class TwitterControllerIntTest {
 
   @Before
   public void setUp() throws Exception {
-    BasicConfigurator.configure();
     String cKey = System.getenv("consumerKey");
     String cSecret = System.getenv("consumerSecret");
     String accessToken = System.getenv("accessToken");

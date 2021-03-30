@@ -14,7 +14,6 @@ import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.CreateTweetUtil;
 import ca.jrvs.apps.twitter.util.TwitterJsonParser;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +36,6 @@ public class TwitterDaoUnitTest {
 
   @Before
   public void setUp() throws Exception {
-    BasicConfigurator.configure();
     tweetJsonStr = "{\n"
         + "   \"created_at\":\"Mon Feb 18 21:24:39 +0000 2019\",\n"
         + "   \"id\":1097607853932564480,\n"

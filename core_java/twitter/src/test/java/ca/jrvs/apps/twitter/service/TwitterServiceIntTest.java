@@ -1,31 +1,27 @@
 package ca.jrvs.apps.twitter.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
-import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelperTest;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.CreateTweetUtil;
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class TwitterServiceIntTest {
 
-  static final Logger logger = LoggerFactory.getLogger(TwitterHttpHelperTest.class);
   Service service;
   Tweet posted;
   String text;
 
   @Before
   public void setUp() throws Exception {
-    BasicConfigurator.configure();
     String cKey = System.getenv("consumerKey");
     String cSecret = System.getenv("consumerSecret");
     String accessToken = System.getenv("accessToken");

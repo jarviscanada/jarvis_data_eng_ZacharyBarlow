@@ -4,19 +4,14 @@ import static org.junit.Assert.*;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
-import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelperTest;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.CreateTweetUtil;
 import java.net.URISyntaxException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.apache.log4j.BasicConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TwitterDaoIntTest {
 
-  static final Logger logger = LoggerFactory.getLogger(TwitterHttpHelperTest.class);
 
   String text;
   Double lng;
@@ -27,7 +22,6 @@ public class TwitterDaoIntTest {
 
   @Before
   public void setUp() throws Exception {
-    BasicConfigurator.configure();
     String cKey = System.getenv("consumerKey");
     String cSecret = System.getenv("consumerSecret");
     String accessToken = System.getenv("accessToken");
@@ -53,7 +47,6 @@ public class TwitterDaoIntTest {
     try {
       dao.deleteById(ret.getIdStr());
     } catch (Exception e) {
-      logger.error("Unable to delete the tweet.");
       throw new RuntimeException(e);
     }
   }
@@ -72,7 +65,6 @@ public class TwitterDaoIntTest {
     try {
       dao.deleteById(ret.getIdStr());
     } catch (Exception e) {
-      logger.error("Unable to delete the tweet.");
       throw new RuntimeException(e);
     }
   }
@@ -87,7 +79,6 @@ public class TwitterDaoIntTest {
       assertEquals(lat, fnd.getCoordinates().getCoordinates().get(1));
       assertEquals(text, fnd.getText());
     } catch (Exception e) {
-      logger.error("Unable to delete the tweet.");
       throw new RuntimeException(e);
     }
   }
