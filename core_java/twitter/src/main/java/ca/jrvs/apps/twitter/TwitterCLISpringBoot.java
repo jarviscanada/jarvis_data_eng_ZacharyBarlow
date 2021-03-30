@@ -15,7 +15,7 @@ public class TwitterCLISpringBoot implements CommandLineRunner {
   public TwitterCLISpringBoot(TwitterAppCLI app) { this.app = app; }
 
   public static void main(String[] args) {
-    if(args.length < 1){
+    if (args.length < 1){
       throw new IllegalArgumentException("TwitterAppCLI post/get/delete [options]");
     }
 
