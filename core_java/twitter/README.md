@@ -10,7 +10,7 @@ docker run --rm \
 -e consumerSecret=YOUR_VALUE \
 -e accessToken=YOUR_VALUE \
 -e tokenSecret=YOUR_VALUE \
-barloza/twitter post|get|delete [options]
+barlowza/twitter post|get|delete [options]
 ```
 
 # Design
