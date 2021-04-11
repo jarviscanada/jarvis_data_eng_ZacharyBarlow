@@ -11,7 +11,7 @@ public class ValidParentheses {
   private HashMap<Character, Character> map;
 
   public ValidParentheses() {
-    map = new HashMap<Character, Character>();
+    map = new HashMap<>();
     map.put(')', '(');
     map.put(']', '[');
     map.put('}', '{');
