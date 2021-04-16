@@ -4,16 +4,20 @@ import static org.junit.Assert.*;
 
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
+import ca.jrvs.apps.trading.service.QuoteService;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MarketDataDaoIntTest {
 
   private MarketDataDao dao;
+  private static final Logger logger = LoggerFactory.getLogger(QuoteService.class);
 
   @Before
   public void setUp() throws Exception {
@@ -32,6 +36,7 @@ public class MarketDataDaoIntTest {
   public void findById() {
     String ticker = "AAPL";
     Optional<IexQuote> iexQuote = dao.findById(ticker);
+    logger.debug(iexQuote.toString());
     assertEquals(ticker, iexQuote.get().getSymbol());
   }
 

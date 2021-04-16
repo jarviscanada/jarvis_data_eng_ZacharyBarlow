@@ -1,12 +1,11 @@
 package ca.jrvs.apps.trading.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
 import ca.jrvs.apps.trading.model.domain.Quote;
-import com.sun.org.apache.xpath.internal.operations.Quo;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Before;
@@ -35,46 +34,45 @@ public class QuoteServiceIntTest {
 
   @Test
   public void findIexQuoteByTicker() {
-    Quote q2 = null;
+    Quote q2 = new Quote();
     q2.setAskPrice(5d);
     q2.setAskSize(10);
     q2.setBidPrice(5d);
     q2.setBidSize(10);
-    q2.setId("msft");
+    q2.setTicker("MSFT");
     q2.setLastPrice(5d);
 
-    IexQuote iexQuote = quoteService.findIexQuoteByTicker(q2.getId());
-    assertEquals(q2.getId(), iexQuote.getSymbol());
+    IexQuote iexQuote = quoteService.findIexQuoteByTicker(q2.getTicker());
+    assertEquals(q2.getTicker(), iexQuote.getSymbol());
   }
 
   @Test
   public void updateMarketData() {
-    Quote q2 = null;
+    Quote q2 = new Quote();
     q2.setAskPrice(5d);
-    q2.setAskSize(10);
+    q2.setAskSize(20);
     q2.setBidPrice(5d);
-    q2.setBidSize(10);
-    q2.setId("msft");
+    q2.setBidSize(20);
+    q2.setTicker("MSFT");
     q2.setLastPrice(5d);
     quoteDao.save(q2);
     quoteService.updateMarketData();
 
-    Quote q3 = quoteDao.findById(q2.getId()).get(); // after update
-    assertEquals(q2, q3);
+    Quote q3 = quoteDao.findById(q2.getTicker()).get(); // after update
+    assertEquals(q2.getTicker(), q3.getTicker());
   }
 
   @Test
   public void saveQuotes() {
-    List<Quote> quotes = quoteService.saveQuotes(Arrays.asList("aapl", "fb", "mfst"));
+    List<String> qs = Arrays.asList("AAPL", "FB", "MSFT");
+    List<Quote> quotes = quoteService.saveQuotes(qs);
     assertEquals(3, quotes.size());
-    assertEquals("aapl", quotes.get(0).getId());
-    assertEquals("fb", quotes.get(1).getId());
-    assertEquals("mfst", quotes.get(2).getId());
+    assertEquals(qs.size(), quotes.size());
   }
 
   @Test
   public void saveQuote() {
-    Quote quote = quoteService.saveQuote("aapl");
-    assertEquals("aapl", quote.getId());
+    Quote quote = quoteService.saveQuote("AAPL");
+    assertEquals("AAPL", quote.getTicker());
   }
 }

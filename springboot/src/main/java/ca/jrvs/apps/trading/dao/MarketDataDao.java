@@ -4,6 +4,7 @@ import ca.jrvs.apps.trading.model.config.MarketDataConfig;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -77,16 +80,18 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
 
   @Override
   public List<IexQuote> findAllById(Iterable<String> tickers) {
-    StringBuilder stringBuilder = new StringBuilder();
+    logger.info(tickers.toString());
     tickers.forEach(t -> {
-      if (t.length() >= 2 && t.length() <= 5 && Pattern.matches("[a-zA-Z]+", t)) {
-        stringBuilder.append(t.toLowerCase() + ",");
-      } else {
+      if (t.length() < 2 || t.length() > 5 || t.matches(".*[0-9]+.*")) {
         throw new IllegalArgumentException("Ticker is not of proper format");
       }
     });
 
-    String uri = String.format(IEX_BATCH_PATH, stringBuilder);
+    String ids = StreamSupport.stream(tickers.spliterator(), false)
+        .collect(Collectors.joining(","));
+
+    String uri = String.format(IEX_BATCH_URL, ids);
+    logger.debug(uri);
 
     Optional<String> json = executeHttpGet(uri);
     JSONObject jo = new JSONObject(json.get());
@@ -99,12 +104,13 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
 
     ObjectMapper m = new ObjectMapper();
     m.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    ObjectReader reader = m.reader().withRootName("quote");
 
     List<IexQuote> quotes = new ArrayList<>();
     do {
       String key = jo.get(keys.next()).toString();
       try {
-        IexQuote quote = m.readValue(key, IexQuote.class);
+        IexQuote quote = reader.forType(IexQuote.class).readValue(key);
         quotes.add(quote);
       } catch (IOException e) {
         throw new DataRetrievalFailureException("Couldn't convert JSON to object");
@@ -143,6 +149,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
   private Optional<String> executeHttpGet(String url) {
     HttpClient httpClient = getHttpClient();
     URI uri = URI.create(url);
+    logger.debug(url);
 
     try {
       HttpResponse response = httpClient.execute(new HttpGet(uri));
@@ -154,6 +161,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
       }
 
       String data = EntityUtils.toString(response.getEntity());
+
       return Optional.of(data);
     } catch (IOException e) {
       throw new DataRetrievalFailureException("Unable to fetch the data.");

@@ -51,7 +51,9 @@ public class QuoteService {
   public void updateMarketData() {
     List<Quote> quotes = quoteDao.findAll();
     List<String> ids = new ArrayList<>();
-    quotes.stream().forEach(q -> ids.add(q.getId()));
+    quotes.forEach(q -> {
+      ids.add(q.getTicker());
+    });
     List<IexQuote> allIds = marketDataDao.findAllById(ids);
     Iterable<Quote> quoteIterable = allIds.stream().map(QuoteService::buildQuoteFromIexQuote).collect(Collectors.toList());
     quoteDao.saveAll(quoteIterable);
@@ -65,8 +67,8 @@ public class QuoteService {
    * @return
    */
   protected static Quote buildQuoteFromIexQuote(IexQuote iexQuote) {
-    Quote quote = null;
-    quote.setId(iexQuote.getSymbol());
+    Quote quote = new Quote();
+    quote.setTicker(iexQuote.getSymbol());
     quote.setAskPrice(iexQuote.getIexAskPrice());
     quote.setBidPrice(iexQuote.getIexBidPrice());
     quote.setBidSize(iexQuote.getIexBidSize());

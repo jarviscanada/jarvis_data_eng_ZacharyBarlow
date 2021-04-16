@@ -2,12 +2,14 @@ package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Quote;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -29,6 +31,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
   private JdbcTemplate jdbcTemplate;
   private SimpleJdbcInsert simpleJdbcInsert;
 
+  @Autowired
   public QuoteDao(DataSource dataSource) {
     jdbcTemplate = new JdbcTemplate(dataSource);
     simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME);
@@ -36,8 +39,9 @@ public class QuoteDao implements CrudRepository<Quote, String> {
 
   @Override
   public Quote save(Quote quote) {
-    if (existsById(quote.getId())) {
+    if (existsById(quote.getTicker())) {
       int updatedRowNo = updateOne(quote);
+      logger.info(String.valueOf(updatedRowNo));
       if (updatedRowNo != 1) {
         throw new DataRetrievalFailureException("Unable to update quote");
       }
@@ -73,15 +77,15 @@ public class QuoteDao implements CrudRepository<Quote, String> {
     objects[2] = quote.getBidSize();
     objects[3] = quote.getAskPrice();
     objects[4] = quote.getAskSize();
-    objects[5] = quote.getId();
+    objects[5] = quote.getTicker();
     return objects;
   }
 
   @Override
   public <S extends Quote> List<S> saveAll(Iterable<S> iterable) {
-    List<S> quotes = new ArrayList<>();
-    iterable.forEach(quote -> quotes.add((S) save(quote)));
-    return quotes;
+    List<S> lists = new ArrayList<>();
+    iterable.forEach(s -> lists.add((S) save(s)));
+    return lists;
   }
 
   /**
@@ -92,7 +96,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
   @Override
   public Optional<Quote> findById(String ticker) {
     String sql_statement = "select * from " + TABLE_NAME + " where " + ID_COLUMN_NAME + "=?";
-    Quote quote = null;
+    Quote quote = new Quote();
     try {
       quote = jdbcTemplate.queryForObject(sql_statement,
           BeanPropertyRowMapper.newInstance(Quote.class), ticker);
