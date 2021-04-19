@@ -1,14 +1,24 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.SecurityOrder;
+import java.util.ArrayList;
+import java.util.List;
 import javax.sql.DataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
+
   private final String TABLE_NAME = "security_order";
   private final String ID_COLUMN = "id";
+
+  private static final Logger logger = LoggerFactory.getLogger(QuoteDao.class);
+
 
   private JdbcTemplate jdbcTemplate;
   private SimpleJdbcInsert simpleJdbcInsert;
@@ -19,8 +29,11 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
     this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME)
         .usingGeneratedKeyColumns(ID_COLUMN);
   }
+
   @Override
-  public JdbcTemplate getJdbcTemplate() { return jdbcTemplate; }
+  public JdbcTemplate getJdbcTemplate() {
+    return jdbcTemplate;
+  }
 
   @Override
   public SimpleJdbcInsert getSimpleJdbcInsert() {
@@ -44,12 +57,34 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
 
   @Override
   public int updateOne(SecurityOrder entity) {
-    throw new UnsupportedOperationException("Not implemented");
+    String update_sql = "UPDATE " + TABLE_NAME + " SET account_id=?, status=?, ticker=?, size=?,"
+        + "price=?, notes=? WHERE " + ID_COLUMN + "=?";
+    return jdbcTemplate.update(update_sql, makeUpdateValues(entity));
+  }
+
+  /**
+   * Helper method that makes sql update values objects
+   *
+   * @param securityOrder
+   * @return
+   */
+  private Object[] makeUpdateValues(SecurityOrder securityOrder) {
+    Object[] objects = new Object[7];
+    objects[0] = securityOrder.getId();
+    objects[1] = securityOrder.getAccountId();
+    objects[2] = securityOrder.getStatus();
+    objects[3] = securityOrder.getTicker();
+    objects[4] = securityOrder.getSize();
+    objects[5] = securityOrder.getPrice();
+    objects[6] = securityOrder.getNotes();
+    return objects;
   }
 
   @Override
-  public <S extends SecurityOrder> Iterable<S> saveAll(Iterable<S> iterable) {
-    return null;
+  public <S extends SecurityOrder> List<S> saveAll(Iterable<S> iterable) {
+    List<S> lists = new ArrayList<>();
+    iterable.forEach(s -> lists.add((S) save(s)));
+    return lists;
   }
 
   @Override

@@ -1,4 +1,4 @@
--- psql -h PSQL_HOST -p 5432 -U postgres jrvstrading_test -f schema.sql
+-- psql -h localhost -p 5432 -U postgres jrvstrading_test -f schema.sql
 -- Drop table
 
 DROP TABLE IF EXISTS public.trader cascade;

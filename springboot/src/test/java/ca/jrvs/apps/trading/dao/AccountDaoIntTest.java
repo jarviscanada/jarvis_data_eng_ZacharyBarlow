@@ -1,10 +1,10 @@
 package ca.jrvs.apps.trading.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.model.domain.Account;
-import ca.jrvs.apps.trading.model.domain.Quote;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import java.sql.Date;
 import java.util.Arrays;
@@ -83,13 +83,11 @@ public class AccountDaoIntTest {
     account2.setTrader_id(trader.getId());
     account2.setAmount(10d);
 
-    accountDao.saveAll(Arrays.asList(account1, account2));
-    assertEquals(3, accountDao.count());
-
     List<Account> accounts = accountDao.saveAll(Arrays.asList(account1, account2));
     Account rq1 = accountDao.findById(2).get();
     Account rq2 = accountDao.findById(3).get();
 
+    assertEquals(3, accountDao.count());
     assertEquals(accounts.get(0).getId(), rq1.getId());
     assertEquals(accounts.get(1).getId(), rq2.getId());
   }
@@ -102,37 +100,61 @@ public class AccountDaoIntTest {
     account1.setAmount(10d);
 
     Account acc = accountDao.save(account1);
-    assertEquals(new Integer(2), acc.getId());
+    assertEquals(account1.getId(), acc.getId());
     assertEquals(trader.getId(), acc.getTrader_id());
-    assertEquals(new Double(10), acc.getAmount());
+    assertEquals(account.getAmount(), acc.getAmount());
   }
 
   @Test
   public void findById() {
     Account acc = accountDao.findById(account.getId()).get();
+    assertEquals(account.getId(), acc.getId());
+    assertEquals(trader.getId(), acc.getTrader_id());
+    assertEquals(account.getAmount(), acc.getAmount());
   }
 
   @Test
   public void existsById() {
+    assertTrue(accountDao.existsById(account.getId()));
   }
 
   @Test
   public void findAll() {
+    List<Account> accounts = accountDao.findAll();
+    assertEquals(1, accountDao.count());
+    assertEquals(account.getId(), accounts.get(0).getId());
   }
 
   @Test
   public void findAllById() {
+    Account account1 = new Account();
+    account1.setId(2);
+    account1.setTrader_id(trader.getId());
+    account1.setAmount(10d);
+    accountDao.save(account1);
+
+    List<Account> accounts = accountDao
+        .findAllById(Arrays.asList(account.getId(), account1.getId()));
+    assertEquals(2, accounts.size());
+    assertEquals(account.getId(), accounts.get(0).getId());
+    assertEquals(account1.getId(), accounts.get(1).getId());
   }
 
   @Test
   public void deleteById() {
+    assertEquals(1, accountDao.count());
+    accountDao.deleteById(account.getId());
+    assertEquals(0, accountDao.count());
   }
 
   @Test
   public void count() {
+    assertEquals(1, accountDao.count());
   }
 
   @Test
   public void deleteAll() {
+    accountDao.deleteAll();
+    assertEquals(0, accountDao.count());
   }
 }

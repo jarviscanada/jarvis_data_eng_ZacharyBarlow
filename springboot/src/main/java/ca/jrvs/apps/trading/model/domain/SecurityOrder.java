@@ -20,11 +20,11 @@ public class SecurityOrder implements Entity<Integer> {
     this.id = id;
   }
 
-  public Integer getAccount_id() {
+  public Integer getAccountId() {
     return account_id;
   }
 
-  public void setAccount_id(Integer account_id) {
+  public void setAccountId(Integer account_id) {
     this.account_id = account_id;
   }
 
@@ -66,5 +66,18 @@ public class SecurityOrder implements Entity<Integer> {
 
   public void setNotes(String notes) {
     this.notes = notes;
+  }
+
+  @Override
+  public String toString() {
+    return "{"
+        + "                        \"id\":\"" + id + "\""
+        + ",\n                         \"account_id\":\"" + account_id + "\""
+        + ",\n                         \"status\":\"" + status + "\""
+        + ",\n                         \"ticker\":\"" + ticker + "\""
+        + ",\n                         \"size\":\"" + size + "\""
+        + ",\n                         \"price\":\"" + price + "\""
+        + ",\n                         \"notes\":\"" + notes + "\""
+        + "}";
   }
 }

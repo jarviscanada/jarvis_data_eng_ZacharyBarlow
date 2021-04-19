@@ -2,6 +2,7 @@ package ca.jrvs.apps.trading.service;
 
 import ca.jrvs.apps.trading.dao.AccountDao;
 import ca.jrvs.apps.trading.dao.PositionDao;
+import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.dao.SecurityOrderDao;
 import ca.jrvs.apps.trading.dao.TraderDao;
 import ca.jrvs.apps.trading.model.domain.Account;
@@ -10,15 +11,27 @@ import ca.jrvs.apps.trading.model.domain.Trader;
 import ca.jrvs.apps.trading.model.views.TraderAccountView;
 import java.util.List;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TraderAccountService {
 
+  private static final Logger logger = LoggerFactory.getLogger(QuoteDao.class);
+
   private TraderDao traderDao;
   private AccountDao accountDao;
   private PositionDao positionDao;
   private SecurityOrderDao securityOrderDao;
+
+  public TraderAccountService(TraderDao traderDao, AccountDao accountDao, PositionDao positionDao,
+      SecurityOrderDao securityOrderDao) {
+    this.traderDao = traderDao;
+    this.accountDao = accountDao;
+    this.positionDao = positionDao;
+    this.securityOrderDao = securityOrderDao;
+  }
 
   /**
    * Create a new trader an initialize a new account with 0 amount - validate user input (all fields
@@ -40,10 +53,9 @@ public class TraderAccountService {
     Account account = new Account();
     account.setTrader_id(trader1.getId());
     account.setAmount(0.0);
-    account.setId(9210);
-    accountDao.save(account);
+    Account account1 = accountDao.save(account);
 
-    return new TraderAccountView(trader1, account);
+    return new TraderAccountView(trader1, account1);
   }
 
   /**
@@ -54,15 +66,14 @@ public class TraderAccountService {
    * @param traderId must not be null
    */
   public void deleteTraderById(Integer traderId) {
-
-    Optional<Account> trader = accountDao.findById(traderId);
+    Optional<Account> account = accountDao.findByTraderId(traderId);
+    logger.info(account.toString());
     if (traderId == null || !traderDao.existsById(traderId)) {
       throw new IllegalArgumentException("Unable to delete Trader.");
     }
 
-    List<Position> positions = positionDao.findById(trader.get().getId());
-
-    if (trader.get().getAmount() == 0 && (positions == null || positions.size() > 0)) {
+    List<Position> positions = positionDao.findById(account.get().getId());
+    if (account.get().getAmount() == 0 && (positions == null || positions.size() == 0)) {
       securityOrderDao.deleteById(traderId);
       accountDao.deleteById(traderId);
       traderDao.deleteById(traderId);
@@ -81,9 +92,9 @@ public class TraderAccountService {
     if (traderId == null || traderId < 0 || fund < 0) {
       throw new IllegalArgumentException("Invalid input for deposit.");
     }
-    Account account = accountDao.findById(traderId).get();
+    Account account = accountDao.findByTraderId(traderId).get();
     account.setAmount(fund + account.getAmount());
-    accountDao.updateOne(account);
+    accountDao.save(account);
     return account;
   }
 
@@ -100,13 +111,12 @@ public class TraderAccountService {
     if (traderId == null || traderId < 0 || fund < 0) {
       throw new IllegalArgumentException("Invalid input for deposit.");
     }
-    Account account = accountDao.findById(traderId).get();
-
+    Account account = accountDao.findByTraderId(traderId).get();
     if (fund > account.getAmount()) {
       throw new IllegalArgumentException("Withdrawing an amount more than in account.");
     }
     account.setAmount(account.getAmount() - fund);
-    accountDao.updateOne(account);
+    accountDao.save(account);
     return account;
   }
 }

@@ -64,4 +64,15 @@ public class Trader implements Entity<Integer> {
     this.id = id;
   }
 
+  @Override
+  public String toString() {
+    return "{"
+        + "                        \"id\":\"" + id + "\""
+        + ",\n                         \"firstName\":\"" + firstName + "\""
+        + ",\n                         \"lastName\":\"" + lastName + "\""
+        + ",\n                         \"country\":\"" + country + "\""
+        + ",\n                         \"email\":\"" + email + "\""
+        + ",\n                         \"dob\":\"" + dob + "\""
+        + "}";
+  }
 }

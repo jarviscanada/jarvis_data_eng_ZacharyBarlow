@@ -2,9 +2,7 @@ package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Quote;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
@@ -67,6 +65,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
 
   /**
    * Helper method that makes sql update values objects
+   *
    * @param quote
    * @return
    */
@@ -90,6 +89,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
 
   /**
    * Find a quote by ticker
+   *
    * @param ticker name
    * @return
    */
