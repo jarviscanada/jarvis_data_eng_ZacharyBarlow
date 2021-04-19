@@ -1,11 +1,9 @@
 package ca.jrvs.apps.trading;
 
-import ca.jrvs.apps.trading.controller.ResponseExceptionUtil;
 import ca.jrvs.apps.trading.service.QuoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,8 +17,8 @@ public class Application implements CommandLineRunner {
 
   private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
-  @Value("${app.init.dailyList}")
-  private String[] initDailyList;
+//  @Value("${app.init.dailyList}")
+//  private String[] initDailyList;
 
   @Autowired
   private QuoteService quoteService;
