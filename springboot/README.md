@@ -39,6 +39,7 @@ docker run -d --rm --name trading-app-dev \
 --network trading-net \
 -p 8080:8080 -t barlowza/trading-app
 ```
+Then navigate to http://localhost:8080/swagger-ui.html to view and use the endpoints.
 # Implemenation
 ## Architecture
 ![Architecture](./assets/diagram.jpg)
