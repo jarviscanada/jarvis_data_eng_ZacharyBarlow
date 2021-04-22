@@ -1,6 +1,10 @@
 Table of contents
 * [Introduction](#Introduction)
-* include all first level titles
+* [Quick Start](#Quick Start)
+* [Implementation](#Implementation)
+* [Test](#Test)
+* [Development](#Development)
+* [Improvements](#Improvements)
 
 # Introduction
 This is a Proof of Concept trading app that allows users to manage client profiles and accounts, monitor
