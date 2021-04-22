@@ -109,7 +109,7 @@ The role of Tomcat is to allow us to access the data with the requests and use S
 ### Swagger
 Swagger is an Interface Description Language for describing RESTful APIs expressed using JSON. We are using it
 for easier use in testing endpoints.
-![Swagger](./assets/swagger.jpg)
+![Swagger](./assets/swagger.JPG)
 ### Quote Controller
 - This controller allows users to get daily quotes, add new ones, and update quotes individually or as an entire 
   table. The IexQuotes come from the IEX api and parsed and saved into a PSQL database.
