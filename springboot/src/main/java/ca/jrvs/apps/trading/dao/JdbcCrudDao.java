@@ -4,6 +4,8 @@ import ca.jrvs.apps.trading.model.domain.Entity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataRetrievalFailureException;
@@ -78,11 +80,9 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
 
   @Override
   public List<T> findAllById(Iterable<Integer> ids) {
-    List<T> results = new ArrayList<>();
-    ids.forEach(id -> {
-      Optional<T> element = findById(id);
-      element.ifPresent(results::add);
-    });
+    List<T> results = StreamSupport.stream(ids.spliterator(), false)
+        .map(id -> findById(id).get())
+        .collect(Collectors.toList());
     return results;
   }
 

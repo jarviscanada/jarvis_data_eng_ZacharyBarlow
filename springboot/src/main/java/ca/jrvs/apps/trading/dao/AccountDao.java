@@ -1,10 +1,10 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Account;
-import ca.jrvs.apps.trading.model.domain.Quote;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,14 +87,16 @@ public class AccountDao extends JdbcCrudDao<Account> {
           BeanPropertyRowMapper.newInstance(Account.class), traderId);
     } catch (IncorrectResultSizeDataAccessException e) {
       logger.debug("Can't find trader id:" + traderId, e);
+      throw new RuntimeException("Unable to find trader id: " + traderId);
     }
     return Optional.of(account);
   }
 
   @Override
   public <S extends Account> List<S> saveAll(Iterable<S> iterable) {
-    List<S> lists = new ArrayList<>();
-    iterable.forEach(s -> lists.add((S) save(s)));
+    List<S> lists = StreamSupport.stream(iterable.spliterator(), false)
+        .map(this::save)
+        .collect(Collectors.toList());
     return lists;
   }
 
