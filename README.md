@@ -6,9 +6,9 @@ My name is Zachary Barlow and I graduated from the University of Toronto Scarbor
 
 **Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python
 
-**Competent:** JavaScript, React, Django, NumPy, Docker, Excel, HTML5/CSS, Jupyter Notebook, Maven
+**Competent:** JavaScript, React, Django, NumPy, Docker, Excel, HTML5/CSS, Jupyter Notebook, Maven, Springboot
 
-**Familiar:** Pandas, TensorFlow, Express.js, Node.js, Google Cloud Platform, R, Computer Networking, Springboot
+**Familiar:** Pandas, TensorFlow, Express.js, Node.js, Google Cloud Platform, R, Computer Networking
 
 ## Jarvis Projects
 
@@ -23,7 +23,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_demo](http
   - JDBC App: Implemented a DAO in terms of a Customer and Orders and demonstrated how they are connected to DTOs and the abstraction layer. Using Maven, Java, Docker, and PostgreSQL for the RDBMS.
   - Grep App: Implemented a copy cat Linux grep command in Java using two separate implementations and hosted it on Docker Hub. The two implementations are using strictly for loops and the other, updated for more performance was using Streams and Lambda functions.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/springboot)]: Developed a Proof of Concept trading application that allows users to manage client profiles and accounts, monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from IEX Cloud to handle all the business and core logic of the application.
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/springboot)]: Developed a Proof of Concept microservice trading application that allows users to manage client profiles and accounts, monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from IEX Cloud to handle all the business and core logic of the application. It is tested using Junit4 integration tests and uses Docker to deploy and package the application with a Maven image and push the project images (psql image and application image) to the Docker Hub.
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/python_data_anlytics)]: Not Started
 

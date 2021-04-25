@@ -29,6 +29,7 @@ skills:
     - HTML5/CSS
     - Jupyter Notebook
     - Maven
+    - Springboot
 
   # At least 5 skills
   familiar:
@@ -39,7 +40,6 @@ skills:
     - Google Cloud Platform
     - R
     - Computer Networking
-    - Springboot
 
 # List of Jarvis projects
 jarvis_projects:
@@ -56,9 +56,10 @@ jarvis_projects:
       - "Grep App: Implemented a copy cat Linux grep command in Java using two separate implementations and hosted it on Docker Hub. The two implementations are using strictly for loops and the other, updated for more performance was using Streams and Lambda functions."
   - name: "Springboot App"
     git_url: "/springboot"
-    description: "Developed a Proof of Concept trading application that allows users to manage client profiles and accounts,
+    description: "Developed a Proof of Concept microservice trading application that allows users to manage client profiles and accounts,
     monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from
-    IEX Cloud to handle all the business and core logic of the application."
+    IEX Cloud to handle all the business and core logic of the application. It is tested using Junit4 integration tests and uses Docker to deploy and package
+    the application with a Maven image and push the project images (psql image and application image) to the Docker Hub."
   - name: "Python Data Analytics"
     git_url: "/python_data_anlytics"
     description: ""

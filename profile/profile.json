@@ -37,7 +37,7 @@
       "name": "Core Java Apps"
     },
     {
-      "description": "Developed a Proof of Concept trading application that allows users to manage client profiles and accounts, monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from IEX Cloud to handle all the business and core logic of the application.",
+      "description": "Developed a Proof of Concept microservice trading application that allows users to manage client profiles and accounts, monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from IEX Cloud to handle all the business and core logic of the application. It is tested using Junit4 integration tests and uses Docker to deploy and package the application with a Maven image and push the project images (psql image and application image) to the Docker Hub.",
       "git_url": "/springboot",
       "name": "Springboot App"
     },
@@ -98,7 +98,8 @@
       "Excel",
       "HTML5/CSS",
       "Jupyter Notebook",
-      "Maven"
+      "Maven",
+      "Springboot"
     ],
     "familiar": [
       "Pandas",
@@ -107,8 +108,7 @@
       "Node.js",
       "Google Cloud Platform",
       "R",
-      "Computer Networking",
-      "Springboot"
+      "Computer Networking"
     ],
     "proficient": [
       "Java",
