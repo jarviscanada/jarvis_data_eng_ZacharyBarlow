@@ -12,26 +12,26 @@ My name is Zachary Barlow and I graduated from the University of Toronto Scarbor
 
 ## Jarvis Projects
 
-Project source code: [https://github.com/jarviscanada/jarvis_data_eng_demo](https://github.com/jarviscanada/jarvis_data_eng_demo)
+Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/linux_sql)]: Developed a Linux clustering monitoring agent that can be used to manage and monitor nodes/server hardware specifications. Created a PostgreSQL instance from a docker container running a CentOS7 image and activated a crontab to run a bash script to collect the data every minute and insert it into the database. As well as creating a few SQL queries that the manager can use to check host failures on specific machines.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/linux_sql)]: Developed a Linux clustering monitoring agent that can be used to manage and monitor nodes/server hardware specifications. Created a PostgreSQL instance from a docker container running a CentOS7 image and activated a crontab to run a bash script to collect the data every minute and insert it into the database. As well as creating a few SQL queries that the manager can use to check host failures on specific machines.
 
-**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/core_java)]:
+**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/core_java)]:
       
   - Twitter App: Developed a command-line interface using Java 8 to allow the user to create, read, and delete tweets using the Twitter API. Architected the application using the MVC design pattern and Java Spring framework. Tested the application using JUnit4 and Mockito to perform the unit and integration tests to ensure proper functionality and created a docker file to deploy an image to docker hub.
   - JDBC App: Implemented a DAO in terms of a Customer and Orders and demonstrated how they are connected to DTOs and the abstraction layer. Using Maven, Java, Docker, and PostgreSQL for the RDBMS.
   - Grep App: Implemented a copy cat Linux grep command in Java using two separate implementations and hosted it on Docker Hub. The two implementations are using strictly for loops and the other, updated for more performance was using Streams and Lambda functions.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/springboot)]: Developed a Proof of Concept microservice trading application that allows users to manage client profiles and accounts, monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from IEX Cloud to handle all the business and core logic of the application. It is tested using Junit4 integration tests and uses Docker to deploy and package the application with a Maven image and push the project images (psql image and application image) to the Docker Hub.
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/springboot)]: Developed a Proof of Concept microservice trading application that allows users to manage client profiles and accounts, monitor portfolio performance, and trade securities using Java8 and Springboot to implement the REST API coming from IEX Cloud to handle all the business and core logic of the application. It is tested using Junit4 integration tests and uses Docker to deploy and package the application with a Maven image and push the project images (psql image and application image) to the Docker Hub.
 
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/python_data_anlytics)]: Not Started
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/python_data_anlytics)]: Not Started
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/hadoop)]: Not Started
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/master/hadoop)]: Not Started
 
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/spark)]: Not Started
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/spark)]: Not Started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/cloud_devops)]: Not Started
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/cloud_devops)]: Not Started
 
 
 ## Highlighted Projects
