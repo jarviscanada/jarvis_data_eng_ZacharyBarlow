@@ -25,13 +25,13 @@ from retail;
 
 -- Calculate average invoice amount excluding
 -- invoices with a negative amount (e.g. canceled orders have negative amount)
-select avg(t.total)
+select avg(table_total.total)
 from (
          select invoice_no, sum(quantity * unit_price) as total
          from retail
          group by invoice_no
-     ) t
-where t.total > 0;
+     ) table_total
+where table_total.total > 0;
 
 -- Calculate total revenue (e.g. sum of unit_price * quantity)
 select sum(quantity * unit_price)
