@@ -8,7 +8,7 @@
       "school_name": "University of Toronto Scarborough"
     }
   ],
-  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_demo",
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow",
   "highlighted_projects": [
     {
       "description": "Developed an online multiplayer bingo game using Socket.IO and Node.js for the rooms and connections and then React for the frontend where the game updates for every change to the game without refreshing.",
@@ -42,7 +42,7 @@
       "name": "Springboot App"
     },
     {
-      "description": "",
+      "description": "Performed data analytics against a data warehouse stored in Postgres and ingested from the London Gift Shop retail database. It is a proof of concept app that is analyzed in a Jupyter Notebook using Python Pandas, NumPy, and Matplotlib for graphs. It is used to help the team use the analytics provided to analyze their customer behaviour and shape their marketing strategies to attract new and existing customers. ",
       "git_url": "/python_data_anlytics",
       "name": "Python Data Analytics"
     },
