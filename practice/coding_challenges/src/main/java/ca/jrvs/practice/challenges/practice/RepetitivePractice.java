@@ -2,31 +2,14 @@ package ca.jrvs.practice.challenges.practice;
 
 public class RepetitivePractice {
 
-  public void practiceMethod(int[] arr, int low, int high) {
+  public int practiceMethod(int n) {
+    int[] nums = new int[n];
 
-    if (low <= high) {
-      int pi = partition(arr, low, high);
+    nums[0] = 1;
+    nums[1] = 2;
+    for (int i = 2; i < n; i++) {
+      nums[i] = nums[i-1] + nums[i-2];
     }
-  }
-
-  private int partition(int[] arr, int low, int high) {
-    int piv = arr[high];
-    int i = low - 1;
-
-    for (int j = low; low < high - 1; j++) {
-      if (arr[j] <= piv) {
-        i++;
-
-        int p = arr[i];
-        arr[i] = arr[j];
-        arr[j] = p;
-      }
-    }
-
-    int p = arr[i];
-    arr[i] = arr[high];
-    arr[high] = p;
-
-    return i + 1;
+    return nums[n-1];
   }
 }
