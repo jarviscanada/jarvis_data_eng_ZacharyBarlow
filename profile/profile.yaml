@@ -1,7 +1,7 @@
 # Preferred name (Characters only)
 name: "Zachary Barlow"
 # Your GitHub repo root URL
-github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_demo
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
@@ -62,7 +62,9 @@ jarvis_projects:
     the application with a Maven image and push the project images (psql image and application image) to the Docker Hub."
   - name: "Python Data Analytics"
     git_url: "/python_data_anlytics"
-    description: ""
+    description: "Performed data analytics against a data warehouse stored in Postgres and ingested from the London Gift Shop retail database.
+    It is a proof of concept app that is analyzed in a Jupyter Notebook using Python Pandas, NumPy, and Matplotlib for graphs.
+    It is used to help the team use the analytics provided to analyze their customer behaviour and shape their marketing strategies to attract new and existing customers. "
   - name: "Hadoop"
     git_url: "/hadoop"
     description: ""
