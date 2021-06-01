@@ -22,12 +22,12 @@ skills:
   competent:
     - JavaScript
     - React
-    - Django
+    - Hadoop/Hive
     - NumPy
     - Docker
     - Excel
     - HTML5/CSS
-    - Jupyter Notebook
+    - Jupyter Notebook/Zeppelin
     - Maven
     - Springboot
 
@@ -40,6 +40,7 @@ skills:
     - Google Cloud Platform
     - R
     - Computer Networking
+    - Django
 
 # List of Jarvis projects
 jarvis_projects:
@@ -67,7 +68,8 @@ jarvis_projects:
     It is used to help the team use the analytics provided to analyze their customer behaviour and shape their marketing strategies to attract new and existing customers. "
   - name: "Hadoop"
     git_url: "/hadoop"
-    description: ""
+    description: "Created an extension on top of the PoC trading application which is used for processing the data using Apache Hadoop and evaluate the different
+    technologies and tools. Created a Hadoop cluster with 1 master node and 2 worker nodes to be able to run the jobs in Hive using Tez as well as MapReduce jobs on the command line. For the Hive queries, I created a Zeppelin notebook to test different querying processes such as partitions and columnar tables and analyzed the differences."
   - name: "Spark"
     git_url: "/spark"
     description: ""
@@ -86,7 +88,9 @@ highlighted_projects:
   - name: "Bookstore Inventory"
     git_url: "https://github.com/zachary-barlow/VentionProject"
     description: "Created a bookstore inventory system where I created an API and made database calls with Knex and made a dashboard with ReactJs where you can add, edit, and delete books, as well as receive notifications when a book is out of stock."
-
+  - name: "Web Scraping ETL"
+    git_url: ""
+    description: "Integrated an ETL pipeline from web scraping data from tables for the Toronto Blue Jays and manipulated and changed the data in certain columns and inserted them into an SQLite database and uploaded the dataset to Kaggle."
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
 #The description must be more than 25 words. If your experience is not software-related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
@@ -107,7 +111,7 @@ education:
   - school_name: "University of Toronto Scarborough"
     duration: "2016-2020"
     degree: "Bachelor of Science"
-    department: "Computer Science, Mathematics, and Statistics"
+    department: "Computer Science, Mathematics, and Statistics: Machine learning and data science"
     # optional
     awards_achievements:
 

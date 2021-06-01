@@ -6,9 +6,9 @@ My name is Zachary Barlow and I graduated from the University of Toronto Scarbor
 
 **Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python
 
-**Competent:** JavaScript, React, Django, NumPy, Docker, Excel, HTML5/CSS, Jupyter Notebook, Maven, Springboot
+**Competent:** JavaScript, React, Hadoop/Hive, NumPy, Docker, Excel, HTML5/CSS, Jupyter Notebook/Zeppelin, Maven, Springboot
 
-**Familiar:** Pandas, TensorFlow, Express.js, Node.js, Google Cloud Platform, R, Computer Networking
+**Familiar:** Pandas, TensorFlow, Express.js, Node.js, Google Cloud Platform, R, Computer Networking, Django
 
 ## Jarvis Projects
 
@@ -27,7 +27,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/python_data_anlytics)]: Performed data analytics against a data warehouse stored in Postgres and ingested from the London Gift Shop retail database. It is a proof of concept app that is analyzed in a Jupyter Notebook using Python Pandas, NumPy, and Matplotlib for graphs. It is used to help the team use the analytics provided to analyze their customer behaviour and shape their marketing strategies to attract new and existing customers. 
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/hadoop)]: Not Started
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/hadoop)]: Created an extension on top of the PoC trading application which is used for processing the data using Apache Hadoop and evaluate the different technologies and tools. Created a Hadoop cluster with 1 master node and 2 worker nodes to be able to run the jobs in Hive using Tez as well as MapReduce jobs on the command line. For the Hive queries, I created a Zeppelin notebook to test different querying processes such as partitions and columnar tables and analyzed the differences.
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/spark)]: Not Started
 
@@ -39,6 +39,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 **Bookstore Inventory** [[GitHub](https://github.com/zachary-barlow/VentionProject)]: Created a bookstore inventory system where I created an API and made database calls with Knex and made a dashboard with ReactJs where you can add, edit, and delete books, as well as receive notifications when a book is out of stock.
 
+**Web Scraping ETL**: Integrated an ETL pipeline from web scraping data from tables for the Toronto Blue Jays and manipulated and changed the data in certain columns and inserted them into an SQLite database and uploaded the dataset to Kaggle.
+
 
 ## Professional Experiences
 
@@ -48,7 +50,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 
 ## Education
-**University of Toronto Scarborough (2016-2020)**, Bachelor of Science, Computer Science, Mathematics, and Statistics
+**University of Toronto Scarborough (2016-2020)**, Bachelor of Science, Computer Science, Mathematics, and Statistics: Machine learning and data science
 
 
 ## Miscellaneous
