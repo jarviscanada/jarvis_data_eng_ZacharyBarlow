@@ -29,7 +29,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 **Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/hadoop)]: Created an extension on top of the PoC trading application which is used for processing the data using Apache Hadoop and evaluate the different technologies and tools. Created a Hadoop cluster with 1 master node and 2 worker nodes to be able to run the jobs in Hive using Tez as well as MapReduce jobs on the command line. For the Hive queries, I created a Zeppelin notebook to test different querying processes such as partitions and columnar tables and analyzed the differences.
 
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/spark)]: Not Started
+**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/spark)]: In progress
 
 **Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_ZacharyBarlow/tree/master/cloud_devops)]: Not Started
 
@@ -39,7 +39,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 **Bookstore Inventory** [[GitHub](https://github.com/zachary-barlow/VentionProject)]: Created a bookstore inventory system where I created an API and made database calls with Knex and made a dashboard with ReactJs where you can add, edit, and delete books, as well as receive notifications when a book is out of stock.
 
-**Web Scraping ETL**: Integrated an ETL pipeline from web scraping data from tables for the Toronto Blue Jays and manipulated and changed the data in certain columns and inserted them into an SQLite database and uploaded the dataset to Kaggle.
+**Web Scraping ETL**: Integrated an ETL pipeline from a web scraping script for data from tables for the Toronto Blue Jays. Manipulated and transformed the data in certain columns and inserted them into an SQLite database then uploaded the dataset to Kaggle.
 
 
 ## Professional Experiences
@@ -50,7 +50,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_ZacharyBar
 
 
 ## Education
-**University of Toronto Scarborough (2016-2020)**, Bachelor of Science, Computer Science, Mathematics, and Statistics: Machine learning and data science
+**University of Toronto Scarborough (2016-2020)**, Bachelor of Science, Computer Science, Mathematics, and Statistics: Machine Learning and Data Science
 
 
 ## Miscellaneous
