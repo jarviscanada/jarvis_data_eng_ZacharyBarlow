@@ -3,7 +3,7 @@
     {
       "awards_achievements": null,
       "degree": "Bachelor of Science",
-      "department": "Computer Science, Mathematics, and Statistics: Machine learning and data science",
+      "department": "Computer Science, Mathematics, and Statistics: Machine Learning and Data Science",
       "duration": "2016-2020",
       "school_name": "University of Toronto Scarborough"
     }
@@ -21,7 +21,7 @@
       "name": "Bookstore Inventory"
     },
     {
-      "description": "Integrated an ETL pipeline from web scraping data from tables for the Toronto Blue Jays and manipulated and changed the data in certain columns and inserted them into an SQLite database and uploaded the dataset to Kaggle.",
+      "description": "Integrated an ETL pipeline from a web scraping script for data from tables for the Toronto Blue Jays. Manipulated and transformed the data in certain columns and inserted them into an SQLite database then uploaded the dataset to Kaggle.",
       "git_url": "",
       "name": "Web Scraping ETL"
     }
@@ -57,7 +57,7 @@
       "name": "Hadoop"
     },
     {
-      "description": "",
+      "description": "In progress",
       "git_url": "/spark",
       "name": "Spark"
     },
